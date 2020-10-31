@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+// import { useReducer } from 'react';
 import {
     UPDATE_PRODUCTS,
     UPDATE_CATEGORIES,
@@ -11,7 +11,13 @@ import {
     TOGGLE_CART
 } from './actions';
 
-export const reducer = (state, action) => {
+export default function reducer(state = {
+    products: [],
+    cart: [],
+    cartOpen: false,
+    categories: [],
+    currentCategory: ''
+}, action) {
     switch (action.type) {
         // if action type value is the value of `UPDATE_PRODUCTS`, return a new state object with an updated products array
         case UPDATE_PRODUCTS:
@@ -89,6 +95,6 @@ export const reducer = (state, action) => {
 //This function, useProductReducer(), will be used to help initialize our global state object and then 
 //provide us with the functionality for updating that state by automatically running it through our custom 
 //reducer() function.
-export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState);
-}
+// export function useProductReducer(initialState) {
+//     return useReducer(reducer, initialState);
+// }
